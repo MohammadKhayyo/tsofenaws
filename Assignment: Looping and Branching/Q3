@@ -1,0 +1,9 @@
+#!/bin/bash
+count=0
+for FILE in *;
+do
+	if [ -f "$FILE" ]; then
+		count=$(($count+$(echo $FILE | wc -c )-1))
+	fi
+done
+echo "The sum of all litter is $count"

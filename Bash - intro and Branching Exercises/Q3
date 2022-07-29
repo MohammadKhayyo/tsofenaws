@@ -1,0 +1,4 @@
+#!/bin/bash
+printf "%s\t%8s\t%s\n" "$RANDOM" "$RANDOM" "$RANDOM"\
+ 		"$RANDOM" "$RANDOM" "$RANDOM"\
+		"$RANDOM" "$RANDOM" "$RANDOM"

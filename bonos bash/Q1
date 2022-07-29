@@ -1,0 +1,19 @@
+#!/bin/bash
+sum=0
+Sub=0
+if [ "$1" = "+" ]; then  
+	for number in ${@:2}
+	do
+		sum=$(($sum+number))
+	done
+	echo "The result is $sum"
+elif [ "$1" = "-" ]; then
+	Sub=$2
+	for number in ${@:3}
+	do
+		Sub=$(($Sub-number))
+	done
+	echo "The result is $Sub"
+else
+	echo "Please use only +/- Operator"
+fi

@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ ! -d $1 ]; then
+	echo "No directory with name $1"
+else
+	dirs=$(find "$1" -type d | tac)
+	for DIR in $dirs;
+	do
+		FILES=$(find "$DIR" -type f | tac)
+		for FILE in $FILES;
+		do
+			rm $FILE
+		done
+		rmdir "$DIR"
+	done
+fi
+
+
+

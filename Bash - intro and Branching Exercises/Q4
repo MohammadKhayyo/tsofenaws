@@ -1,0 +1,19 @@
+#!/bin/bash
+cat > testQ4 <<EOF
+if [ -d "$PWD/dir99/" ]; then
+        echo "The directory $PWD/dir99/ exist"
+else
+        mkdir dir99
+fi
+cd dir99
+if [ -f "hello" ] ; then
+        echo "The File hello exist."
+	echo "Hello Bash" > hello
+else
+        echo "Hello Bash" > hello
+fi
+cd ..
+EOF
+chmod +x testQ4
+./testQ4
+rm testQ4

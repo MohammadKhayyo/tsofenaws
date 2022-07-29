@@ -1,0 +1,2 @@
+#!/bin/bash
+while read p; do if [ -f "$p" ] ;then  break ; fi ; done <&0

@@ -1,0 +1,25 @@
+#!/bin/bash
+command=""
+count=1
+echo "You can only run these commands:"
+echo "ls"
+echo "pwd"
+echo "free"
+echo "exit"
+for (( ; ; ))
+do
+	read command
+	case $command in
+		"ls")
+			 echo $(ls);;
+		"pwd")
+			 echo $(pwd);;
+		"free")
+			FREE=$(free|cat)
+			echo "$FREE";;
+		"exit")
+			 break;;
+		*)
+			echo "$command: command not found";;
+	esac
+done

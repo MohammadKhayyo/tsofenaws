@@ -1,0 +1,16 @@
+#!/bin/bash
+read country
+case $country in
+	"Argentina")
+		 echo "Buenos Aires";;
+	"Armenia")
+		 echo "Yerevan";;
+	"Australia")
+		 echo "Canberra";;
+	"Austria")
+		 echo "Vienna";;
+	"England")
+		 echo "London";;
+	*)
+		echo "not support";;
+esac

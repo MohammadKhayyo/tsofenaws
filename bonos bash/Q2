@@ -1,0 +1,24 @@
+#!/bin/bash
+if [ ! $# -eq 0 ]; then
+	if [ "$1" = "start" ]; then
+		sleep 3600 &
+		echo "Process started on PID: "$!" "
+	elif [ "$1" = "status" ]; then
+		PID=$(pidof -s sleep)
+		if [ -z $PID ]; then
+			echo "no process sleep run"
+		else
+			echo The process is running on PID: $PID
+		fi
+	elif [ "$1" = "stop" ]; then
+		PID=$(pidof -s sleep)
+		if [ -z $PID ]; then
+                        echo "no process sleep run"
+		else
+		kill  $PID
+		echo "Process with pid: $PID terminated"
+                fi
+	else
+		echo "Bad argument"
+	fi
+fi

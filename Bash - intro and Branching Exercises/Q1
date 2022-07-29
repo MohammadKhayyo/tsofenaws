@@ -1,0 +1,11 @@
+#!/bin/bash
+read word
+if  [ "$word"  \< "telephone" ] 
+then
+	echo "$word is little than telephone"
+elif [ "$word"  = "telephone" ] 
+then
+	echo "The word is equel to  telephone"
+else
+	echo "$word is bigger than telephone"
+fi

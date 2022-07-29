@@ -1,0 +1,11 @@
+#!/bin/bash
+for FILE in *;
+do 
+	if [ -d "$FILE" ]; then  
+		printf "%s\t\tdirectory\n" $FILE
+	elif [ -f "$FILE" ]; then
+		printf "%s\t\tFILE\n" $FILE
+	else
+		printf "%s\t\tunknown\n" $FILE
+	fi
+done
