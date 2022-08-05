@@ -1,0 +1,38 @@
+Exercise-1
+------------
+Write a script that:
+1) accepts a word from the user
+2) checks weather this word appear in
+   a dictionary after the word
+   “telephone”, and output appropriate
+   messages (for both cases)
+
+Exercise-2
+---------------
+Write a script that accepts a country name, 
+and output the capital of that country 
+(demonstrate with 5 countries)
+
+
+Exercise-3
+---------------
+Print a table with ordered 3 coloumns of random variables.
+Variables should be left alligned, except from the middle coloumn 
+that should be right alligned.
+Example:
+
+13425  3542 463  
+742   12425 6637 
+2255    352 12345
+
+Exercise-4
+---------------
+Write a script that, when run:
+1- creating another script
+2- makes the new script executable.
+3- Runs the new script
+4- Deletes the new script.
+
+The new script:
+1- checks if a directory called 'dir99' exists, and creates it if it does not exist.
+2- Creates a file called 'hello' in it, and writes 'Hello Bash' in this file.
