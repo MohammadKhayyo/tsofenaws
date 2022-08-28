@@ -1,0 +1,97 @@
+subs>newkey my-key
+A new key called my-key was created
+subs>save files/h.txt
+Enc/Dec keys saved in files/h.txt file
+subs>info
+Current key: my-key
+state: saved in files/h.txt
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>save files/h.txt
+Enc/Dec keys saved in files/h.txt file
+subs>save files/b.txt
+Enc/Dec keys saved in files/b.txt file
+subs>info
+Current key: my-key
+state: saved in files/b.txt
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>load files/h.txt
+Key my-key from file files/h.txt loaded
+subs>info
+Current key: my-key
+state: saved in files/h.txt
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>enc files/a.txt files/h.txt
+File files/a.txt was encrypted into files/h.txt
+subs>info
+Current key: my-key
+state: not saved
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>load files/b.txt
+Key my-key from file files/b.txt loaded
+subs>info
+Current key: my-key
+state: saved in files/b.txt
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>dec files/h.txt files/b.txt
+File files/h.txt was decrypted into files/b.txt
+subs>info
+Current key: my-key
+state: not saved
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>save files/a.txt
+Enc/Dec keys saved in files/a.txt file
+subs>info
+Current key: my-key
+state: saved in files/a.txt
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>load files/b.txt
+No such key
+subs>load files/hj.txt
+No such key
+subs>load files/a.txt
+Key my-key from file files/a.txt loaded
+subs>info
+Current key: my-key
+state: saved in files/a.txt
+Encryption:
+         abcdefghijklmnopqrstuvwxyz
+         gfcyjdsvbiawptxonqrumehkzl
+Decryption:
+         gfcyjdsvbiawptxonqrumehkzl
+         abcdefghijklmnopqrstuvwxyz
+subs>done
