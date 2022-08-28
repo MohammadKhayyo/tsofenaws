@@ -1,0 +1,67 @@
+Final Python project
+Read the Substitution cipher from wikipedia.
+We'll create a program that can:
+
+1) create encryption keys, convert them to decryption keys
+2) save and load keys to files (ex:  my-key.key)
+3) accept a clear-text file and encrypt it using an encryption key
+4) Accept an encrypted file, and decrypt.
+There is always the "current key"  (the created, or loaded key)
+You should write a CLI (command line interface) that a user can use to support all of these actions (see example file).
+Programming instructions:
+1) Create a directory called "enc" under python
+2) Write a modular program, with different modules for specific tasks; For example:
+  - an subs module to handle the cli  
+  - enckey file to handle the creation of keys
+3) Your main file should be called subs.pi
+4) All code should be placed inside functions, except ONE line that should call the entry function
+5) Small functions, each function should do just ONE thing, good and meaningful names....
+6) You cannot submit files, your code should be in your git repository,
+Example:
+subs>
+subs>
+subs>newkey my-key
+A new key called my-key was created
+subs>
+subs>save key1
+Enc/Dec keys saved in key1 file
+subs>
+subs>load other
+No such key
+subs>
+subs>load other1
+Key my-other from file other1 loaded
+subs>
+subs>enc text1.txt enc.txt
+File text1.txt was encrypted into enc.txt
+subs>
+subs>dec enc.txt clear.txt
+File enc.txt was decrypted into clear.txt
+subs>
+subs>info
+Current key: my-other
+state: saved in other1
+Encryption:
+  abcdefghijklmnopqrstuvwxyz
+  rzat.....
+Decryption:
+  abcdefghijklmnopqrstuvwxyz
+  c ...            a d     b
+subs>
+subs>newkey key3
+A new key called key3 was created
+subs>info
+Current key: key3
+state: not saved
+Encryption:
+  abcdefghijklmnopqrstuvwxyz
+  rzat.....
+Decryption:
+  abcdefghijklmnopqrstuvwxyz
+  c ...            a d     b
+subs>
+subs>
+subs>done
+osboxes$
+osboxes$
+osboxes$
