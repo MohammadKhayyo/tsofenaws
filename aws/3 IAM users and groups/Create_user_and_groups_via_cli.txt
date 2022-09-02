@@ -1,0 +1,21 @@
+osboxes@osboxes:~$ aws iam create-group --group-name Developer
+{
+    "Group": {
+        "Path": "/",
+        "GroupName": "Developer",
+        "GroupId": "AGPA2EUWZLNC2JXKBT7AI",
+        "Arn": "arn:aws:iam::697174678341:group/Developer",
+        "CreateDate": "2022-08-31T17:07:41+00:00"
+    }
+}
+osboxes@osboxes:~$ aws iam create-user --user-name Developer_user_1
+{
+    "User": {
+        "Path": "/",
+        "UserName": "Developer_user_1",
+        "UserId": "AIDA2EUWZLNCXX7SY2DRP",
+        "Arn": "arn:aws:iam::697174678341:user/Developer_user_1",
+        "CreateDate": "2022-08-31T17:09:31+00:00"
+    }
+}
+osboxes@osboxes:~$ aws iam add-user-to-group --user-name Developer_user_1 --group-name Developer
