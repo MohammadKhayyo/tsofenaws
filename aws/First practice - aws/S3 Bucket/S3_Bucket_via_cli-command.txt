@@ -1,0 +1,11 @@
+aws s3 mb s3://backet-via-cli --region us-east-1
+aws s3 cp File1.txt s3://backet-via-cli
+aws s3 cp File1.txt s3://backet-via-cli/file1newname.txt
+aws s3 ls s3://backet-via-cli
+aws s3 cp s3://backet-via-cli/file1newname.txt /home/osboxes/Desktop/downloadFile.txt
+ls -althr | grep downloadFile.txt
+aws s3 rm s3://backet-via-cli/File1.txt
+aws s3 ls s3://backet-via-cli
+aws s3 rm s3://backet-via-cli --recursive
+aws s3 ls s3://backet-via-cli
+aws s3 rb s3://backet-via-cli

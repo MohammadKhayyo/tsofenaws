@@ -1,0 +1,42 @@
+You need to create a delivery system for you for your company.
+
+** Do not use the root account.
+Create another user named "admin" with "AdministratorAccess" with Console and CLI keys.
+
+For this task you are going to do the following:
+1. Create a S3 Bucket, upload and download a file.
+	- Using Console
+	- Using CLI
+	- Using python
+
+2. Create an alert using SMS/Email everytime there is a file upload
+	- Using Console
+	- Using CLI
+	- Using Python
+
+3. Create 2 users
+   - publisher
+   - receiver
+
+Those will have CLI keys (Access ID, Secret Access Key), the publisher can only upload files.
+The receiver can only download files.
+
+Security is the key here, do not let the publisher view files (Hint: IAM policies)
+
+Do this with the following:
+	- Console
+	- CLI
+	- Python
+
+Bonus:
+
+Create an EC2 Instance using the following:
+	- Console
+	- CLI
+	- Python
+
+Create a Security group that only allows you to access the server using SSH.
+Do this with:
+	- Console
+	- CLI (Create a script to open and close the SG - with a parameter)
+	- Python (Create a script to open and close the SG - with a parameter) 
