@@ -1,0 +1,47 @@
+## What are we going to do:
+Your job is to create a new secure network for your workplace.
+
+Notes:
+  - We are not going to use the AWS provided VPC, SG, Route table etc....
+
+1. Create a new VPC
+  Q: Provide two best practices when creating a VPN
+	1)Select a standards-based VPN
+	2)Use a VPN with strong cryptography
+2. Create a new subnet
+3. Create a route table
+  Q: Can you sniff a packet between instances in AWS? 
+  Answer:
+	  No, Because there is no arp protocol.
+	Q: What is the implied router and how is it different from route table?
+	Answer:		
+ 		There is no difference.
+	Q: How many ENI should I attach to my instances if my instance is in between zones?
+	Answer:	
+ 		1
+4. Associate the subnet with the route table
+5. Create an EC2 machine in the new subnet and connect to it. Try to ping 8.8.8.8, explain what are you missing?
+6. Create the missing 2 pieces to be able to ping the internet.
+7. Q: What is the benefit of using a NAT gateway instead of Internet Gateway?
+   Answer:
+	1)It allows resources in a private subnet to access the internet (think yum updates, external database connections, wget calls, etc), and
+	it only works one way. The internet at large cannot get through your NAT to your private resources unless you explicitly allow it.
+	2)it only works one way. The internet at large cannot get through your NAT to your private resources unless you explicitly allow it.
+8. Create another EC2 in the same subnet, can you ping the first machine?
+	Answer:
+		No
+ 	If not, create and specify what is missing.
+
+Today's lecture:
+	1. SG vs ACLs
+	2. S3 ACLs
+	3. Costs in creating resources in different AZs
+	4. VPC peering & Endpoints
+
+Bonus:
+  You have the following issue:
+	Your company is creating and destoying machines automatically everyday. You heard from the developrs that some of the machines do not communicate well with the others.
+	How would you solve this? (AWS has a solution for this, think cloudwatch....) 
+	Answer:
+		Logging IP traffic using VPC Flow Logs
+
