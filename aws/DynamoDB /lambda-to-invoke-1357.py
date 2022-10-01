@@ -45,8 +45,8 @@ def lambda_handler(event, context):
                 return json.dumps({'status' : 200,'message' : 'Success!'})
         url=f'https://{bucket_invoker}.s3.amazonaws.com/{key_invoker}'
         name=key_invoker
+        size=response["ContentLength"] 
         text_string=text_bytes.decode('ASCII')
-        size=len(text_string)
         first_line = text_string.split('\n', 1)[0]
         list_of_words_of_the_first_line=first_line.split()
         new_item = {
