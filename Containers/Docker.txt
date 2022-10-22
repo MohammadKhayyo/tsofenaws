@@ -1,0 +1,70 @@
+1. Using containers as portable command lines
+Create an image with AWS cli installed. 
+The image should be able to receive 2 environment variables: AWS SECRET ID, AWS SECRET ACCESS KEY.
+Create a user in AWS IAM and attach a policy that allows the user to upload files to s3 bucket.
+Create a file in your folder (host folder - not inside the container) and upload the file using the container
+
+Bonus: Create a bash aliash to run the command.
+1) Dockerfile: 
+FROM ubuntu
+RUN apt-get update && apt-get -y install curl unzip
+RUN mkdir /upload
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+unzip awscliv2.zip && \
+./aws/install
+2)docker bulid . -t testimage
+3)docker run -v ~/Documents/containers-exe1/upload/:/upload -e AWS_ACCESS_KEY_ID="********************" -e AWS_SECRET_ACCESS_KEY="****************************************" testimage aws s3 cp /upload/1.txt s3://container-s3-bucket-kh/1.txt
+4) see the image with name "image1.png"
+2. The the following image using the command:
+docker pull tomcat:9.0-jdk8-temurin-jammy
+What is the CMD set in this container? How did you find out?
+1) docker pull tomcat:9.0-jdk8-temurin-jammy
+2) docker image inspect tomcat:9.0-jdk8-temurin-jammy
+3) find CMD and see
+4) see the image with name "image2.png"
+3. Remember you created a web site in EC2 using Wordpress?
+You assignment is to create the same thing just with containers.
+Run a wordpress container with a mariadb container in EC2 and make the web site accessible.
+Remember the web site needs to be resistent to reboot (when we reboot the server - no data is supposed to be lost)
+1) run ec2 using ssh
+2) run the command to update : sudo apt-get update
+3) run the command to install curl : sudo apt-get install curl
+4) run the command to download and install Docker: curl -fsSL https://get.docker.com/ | sh
+5) run the command to have dir :mkdir ~/wordpress && cd ~/wordpress
+6) run the command to Downloading and installing a new MariaDB container: docker run -e MYSQL_ROOT_PASSWORD=<password> -e MYSQL_DATABASE=wordpress --name wordpressdb -v "$PWD/database":/var/lib/mysql -d mariadb:latest
+7) run the command to pull the image wordpress : docker pull wordpress
+8) run the command to get WordPress container: docker run -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=<password> --name wordpress --link wordpressdb:mysql -p 80:80 -v "$PWD/html":/var/www/html -d wordpress
+9) see the image with the name "image3.png"
+4. Create a Dockerfile with your favorite python script running.
+The dockerfile needs to include all the requirements to run the script.
+The python script needs to be downloaded from Github evemorytime you rebuilt the image.
+
+Bonus: Try and change the python script in Github, and rebuilt the image. Did the image get updated? yes
+What do you need to do to make this happen?
+1)Dockerfile :
+FROM python:lastest
+RUN pip install --upgrade pip
+RUM mkdir -p /tmp/test && /tmp/test \
+&& git clone "https://github.com/MohammadKhayyo/tsofenaws.git"
+CMD [ "python" , "/tmp/test/tsofenaws/pyhton/test.py" ]
+2)docker build --no-cache .
+3)docker run <IMAGE ID>
+
+5. You need to migrate you newly created image using dockerfile from your laptop to the EC2 instance.
+How would you do that?
+push image to docker Hub, ssh to your EC2 Instance ,install docker inside EC2,docker Pull image
+Bonus: Find another way to do this.
+use secure copy scp
+6. What is a multistage build? And how can you use it?
+Please created a demonstration of the benefits.
+multistage build is when trying to connect two docker images or more in building one image, it is used when we want to share files between different systems or use a specific folder from image to image to build a final application .
+A multistage Docker build process makes it possible to build out an application and then remove any unnecessary development tools from the container. This approach reduces the container's final size, but it is a complex process.
+Multistage builds help you manage Dockerfile size during container proliferation. 
+
+7. What happens when you delete a file in a RUN phase during the dockerfile build?
+It is really deleted?
+no not completley,when running a docker file image layer is created with each line , the image layer dosn't get affected if you delete the file,so it will still be not deleted
+Bonus: How can you check file storage efficiency?
+1)The command "df -h" inside the conatienr 
+2)Use docker info and look for the Storage Driver line
+
